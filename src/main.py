@@ -105,5 +105,7 @@ def main():
     print(count_lighting(size, square))
     return
 
+main()
+
 
 
