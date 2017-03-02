@@ -14,8 +14,8 @@ def read_url(filename):
 
 '''function that can make two-dimension list '''    
 def a2d(size):
-    a2d = [[False] * size for _ in range(size)]
-    return a2d
+    matrix = [[False] * size for _ in range(size)]
+    return matrix
 '''function that count the number of True in the 2d list'''
 def count_lighting(size, a):
     num = 0
@@ -66,7 +66,8 @@ def main():
     size = int(lines[0])
     print("Size is:",size)
     
-    a2d = a2d(size)
+    square = a2d(size)
+    
     for instructions in lines[1:]:
         instruction = instructions.replace(',',' ').split()
         
@@ -90,13 +91,13 @@ def main():
         
         if instruction[0] == "turn" and (len(instruction) == 7):
             if instruction[1] == "on":
-                turn_on(x1, y1, x2, y2, a2d)
+                turn_on(x1, y1, x2, y2, square)
             elif instruction[1] == "off":
-                turn_off(x1, y1, x2, y2, a2d)
+                turn_off(x1, y1, x2, y2, square)
         elif instruction[0] == "switch" and (len(instruction) == 6):
-            switch(x1, y1, x2, y2, a2d)
+            switch(x1, y1, x2, y2, square)
            
-    print(count_lighting(size, a2d))
+    print(count_lighting(size, square))
     return
 
 
